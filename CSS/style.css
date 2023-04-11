@@ -1,0 +1,64 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  display: block;
+}
+
+img {
+  border: 0;
+}
+
+.wrapper {
+  overflow: hidden;
+  position: relative;
+}
+
+#gnb {
+  margin-top: 25px;
+  margin-left: 25px;
+  float: left;
+  width: 15%;
+}
+
+#main_content {
+  margin-top: 25px;
+  float: left;
+  width: 70%;
+  text-align: center;
+}
+
+#to_do_list {
+  position: absolute;
+  right: 25px;
+  top: 25px;
+  width: 15%;
+}
+
+#main_content > div {
+  margin-bottom: 25px;
+}
+
+.Pomodoro_timer {
+  width: 300px;
+  height: 300px;
+  background-color: rgba(255, 51, 51, 0.83);
+  border-radius: 100%;
+  margin: 0 auto;
+}
+
+.wise_saying {
+  width: 300px;
+  margin: 0 auto;
+}
