@@ -1,9 +1,12 @@
 # Time-Manager(시간 관리 사이트)
 📌 개발기간 : 2023.04.06 ~
 
-📌 사용 기술 : ⇒ 뱃지로 달 것 Javascript
+📌 사용 기술 : <img src="https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat&logo=JavaScript&logoColor=white"/>
+<img src="https://img.shields.io/badge/-HTML-E34F26?style=flat&logo=HTML5&logoColor=white"/>
+<img src="https://img.shields.io/badge/-CSS-1572B6?style=flat&logo=CSS3&logoColor=white"/>
 <br/>
 <br/>
+
 ### 소개
 
 ---
@@ -48,7 +51,16 @@
 
 ### 사용 방법 및 예시
 ---
-스크린 샷과 같은 시각 자료 사용할 것
+
+1. 뽀모도로<br/><br/>
+![image](https://user-images.githubusercontent.com/73331052/231891187-2b56f937-d30a-47fd-b64c-163d980479b5.png)
+
+2. 스톱워치<br/><br/> 
+![image](https://user-images.githubusercontent.com/73331052/231891462-8d58f5bb-86fa-4b80-99ff-f537c13447a7.png)
+
+3. 설정<br/><br/>
+![image](https://user-images.githubusercontent.com/73331052/231891531-f1426319-10b0-43a2-bdb6-4415c281e1db.png)
+
 <br/>
 <br/>
 
