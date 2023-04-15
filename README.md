@@ -49,7 +49,9 @@
 <br/>
 <br/>
 
-### 사용 방법 및 예시
+### 사용 방법 및 예시(설명 기입할 것)
+프로토타입 : https://ovenapp.io/view/50KaWrFX5cU5kmY5WwLSKmD7bJPGQI4P/
+
 ---
 
 1. 뽀모도로<br/><br/>
