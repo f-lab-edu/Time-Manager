@@ -4,40 +4,77 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Time-Manager</title>
+    <title>Time Manager</title>
     <link rel="stylesheet" href="./CSS/style.css" />
-    <script defer src=""></script>
   </head>
   <body>
-    <div class="wrapper">
-      <nav>
-        <ul id="gnb">
-          <li><a href="#">Pomodoro</a></li>
-          <li><a href="#">Stopwatch</a></li>
-          <li><a href="#">Setting</a></li>
-        </ul>
-      </nav>
-      <main id="main_content">
-        <div class="d-day">
-          <h1>D-146</h1>
-        </div>
-        <div class="Pomodoro">
-          <h2>25:00</h2>
-        </div>
-        <div class="Pomodoro_timer"></div>
-        <div class="wise_saying">
-          노력을 이기는 재능은 없고, 노력을 외면하는 결과도 없다. - 이창호 9단
-        </div>
-      </main>
-      <div id="to_do_list">
-        <h2>To Do List</h2>
-        <div>Add To Do</div>
-        <ul>
-          <li>Task1</li>
-          <li>Task2</li>
-          <li>Task3</li>
-        </ul>
+    <nav>
+      <ul class="nav__list">
+        <li class="nav__item">
+          <a href="#">
+            <img
+              src="./assets/timer_icon.png"
+              class="nav__item--timer-icon"
+              alt="timer_icon"
+            />
+            Pomodoro
+          </a>
+        </li>
+        <li class="nav__item">
+          <a href="#">
+            <img
+              src="./assets/stopwatch_icon.png"
+              class="nav__item--stopwatch-icon"
+              alt="stopwatch_icon"
+            />
+            Stopwatch
+          </a>
+        </li>
+        <li class="nav__item">
+          <a href="#">
+            <img
+              src="./assets/settings_icon.png"
+              class="nav__item--setting-icon"
+              alt="settings_icon"
+            />
+            Setting
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <main class="main-content">
+      <h1 class="main-content main-content--h1">D-146</h1>
+      <h2 class="main-content main-content--h2">25:00</h2>
+      <div class="main-content main-content--pomodoro-timer"></div>
+      <div class="main-content main-content__text">
+        노력을 이기는 재능은 없고, 노력을 외면하는 결과도 없다. - 이창호 9단
       </div>
+    </main>
+    <div class="to-do">
+      <h2 class="to-do--h2">To Do List</h2>
+      <div class="to-do--line"></div>
+      <div class="to-do__button">
+        <img
+          src="./assets/plus_icon.png"
+          class="to-do__button--plus"
+          alt="plus_icon"
+        />
+        Add To Do
+      </div>
+      <ul class="to-do__list">
+        <li class="to-do__item">
+          <input type="checkbox" id="to-do__item--checkbox1" />
+          <label for="to-do__item--checkbox1">Task1</label>
+        </li>
+        <li class="to-do__item">
+          <input type="checkbox" id="to-do__item--checkbox2" />
+          <label for="to-do__item--checkbox2">Task2</label>
+        </li>
+        <li class="to-do__item">
+          <input type="checkbox" id="to-do__item--checkbox3" />
+          <label for="to-do__item--checkbox3">Task3</label>
+        </li>
+      </ul>
     </div>
   </body>
 </html>
