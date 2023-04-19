@@ -64,7 +64,14 @@ a:hover {
 }
 
 .main-content--h1 {
-  font-size: 3.5rem;
+  /* font-size: 3.5rem; */
+  font-size: 2.5rem;
+}
+
+.main-content--d-day {
+  width: 270px;
+  height: 43px;
+  font-size: 2.3rem;
 }
 
 .main-content--h2 {
