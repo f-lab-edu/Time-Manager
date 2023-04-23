@@ -7,7 +7,6 @@
     <title>Time Manager</title>
     <link rel="stylesheet" href="./CSS/style.css" />
     <script src="./js/d_day.js" defer></script>
-    <script src="./js/to_do.js" defer></script>
   </head>
   <body>
     <nav>
@@ -45,28 +44,18 @@
       </ul>
     </nav>
     <main class="main-content">
-      <h1 class="main-content main-content--h1">D-Day를 입력해주세요</h1>
-      <input
-        type="date"
-        class="main-content main-content--d-day"
-        onkeyup="ddayFormat()"
-        max="9999-12-31"
-      />
-      <h2 class="main-content main-content--h2">25:00</h2>
-      <div class="main-content main-content--pomodoro-timer"></div>
-      <div class="main-content main-content__text">
+      <h1 class="main-content--h1">D-Day를 입력해주세요</h1>
+      <input type="date" class="main-content--d-day" max="9999-12-31" />
+      <h2 class="main-content--h2">25:00</h2>
+      <div class="main-content--pomodoro-timer"></div>
+      <div class="main-content__text">
         노력을 이기는 재능은 없고, 노력을 외면하는 결과도 없다. - 이창호 9단
       </div>
     </main>
     <div class="to-do">
       <h2 class="to-do--h2">To Do List</h2>
       <div class="to-do--line"></div>
-      <div
-        class="to-do__button"
-        contenteditable
-        onclick="clearContent()"
-        onkeydown="saveTodo()"
-      >
+      <div class="to-do__button">
         <img
           src="./assets/plus_icon.png"
           class="to-do__button--plus"

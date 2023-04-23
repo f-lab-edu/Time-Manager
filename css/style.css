@@ -31,7 +31,7 @@ a:hover {
 .nav__list {
   width: 20%;
   background-color: rgba(224, 224, 224, 0.22);
-  width: 10em;
+  width: 155px;
   margin-top: 25px;
   margin-left: 25px;
   border-radius: 20px;
@@ -40,7 +40,7 @@ a:hover {
 
 .nav__item {
   margin: 25px;
-  font-size: 1.1rem;
+  font-size: 17.5px;
   font-weight: 900;
   color: black;
 }
@@ -50,7 +50,7 @@ a:hover {
 .nav__item--setting-icon {
   width: 32px;
   margin-right: 7px;
-  margin-left: -0.7em;
+  margin-left: -12px;
 }
 
 .main-content {
@@ -64,18 +64,17 @@ a:hover {
 }
 
 .main-content--h1 {
-  /* font-size: 3.5rem; */
-  font-size: 2.5rem;
+  font-size: 43px;
 }
 
 .main-content--d-day {
-  width: 270px;
+  width: 235px;
   height: 43px;
-  font-size: 2.3rem;
+  font-size: 37px;
 }
 
 .main-content--h2 {
-  font-size: 3rem;
+  font-size: 48px;
 }
 
 .main-content--pomodoro-timer {
@@ -88,7 +87,7 @@ a:hover {
 .main-content__text {
   width: 300px;
   margin-top: 25px;
-  line-height: 1.3rem;
+  line-height: 21px;
 }
 
 .to-do {
@@ -97,7 +96,7 @@ a:hover {
 }
 
 .to-do--h2 {
-  font-size: 1.4rem;
+  font-size: 22.5px;
   margin-bottom: 5px;
 }
 
