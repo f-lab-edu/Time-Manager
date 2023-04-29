@@ -68,13 +68,28 @@ a:hover {
 }
 
 .main-content--d-day {
-  width: 235px;
+  width: 220px !important;
   height: 43px;
-  font-size: 37px;
+  font-size: 33px !important;
 }
 
-.main-content--h2 {
+.main-content--d-day-btn {
+  width: 100px;
+  height: 30px;
+  background-color: #26a69a;
+  border-radius: 8px;
+  color: white;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 30px;
+  cursor: pointer;
+  margin-bottom: 21px;
+}
+
+.main-content--time {
   font-size: 48px;
+  display: flex;
+  margin-bottom: 23px;
 }
 
 .main-content--pomodoro-timer {

@@ -5,11 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Time Manager</title>
-    <link rel="stylesheet" href="./CSS/style.css" />
-    <script src="./js/d_day.js" defer></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"
+    />
+    <script src="./dist/bundle.js" defer></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"
+      defer
+    ></script>
+    <script
+    src="https://code.jquery.com/jquery-3.6.4.js"
+    integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
+    crossorigin="anonymous"></script>
+    </script>
   </head>
   <body>
-    <nav>
+    <div>
       <ul class="nav__list">
         <li class="nav__item">
           <a href="#">
@@ -42,11 +55,21 @@
           </a>
         </li>
       </ul>
-    </nav>
+    </div>
     <main class="main-content">
       <h1 class="main-content--h1">D-Day를 입력해주세요</h1>
-      <input type="date" class="main-content--d-day" max="9999-12-31" />
-      <h2 class="main-content--h2">25:00</h2>
+      <input
+        type="date"
+        class="main-content--d-day"
+        max="9999-12-31"
+        onkeydown="return false"
+      />
+      <div class="main-content--d-day-btn">D-Day 재입력</div>
+      <div class="main-content--time">
+        <p class="main-content--minutes">25</p>
+        <p class="main-content--separator">:</p>
+        <p class="main-content--seconds">00</p>
+      </div>
       <div class="main-content--pomodoro-timer"></div>
       <div class="main-content__text">
         노력을 이기는 재능은 없고, 노력을 외면하는 결과도 없다. - 이창호 9단
