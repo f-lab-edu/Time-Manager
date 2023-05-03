@@ -2,7 +2,6 @@
 
 body {
   font-family: sans-serif;
-  font-size: 15px;
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
@@ -13,10 +12,8 @@ li {
 }
 
 a {
-  text-decoration: none;
   display: flex;
   flex-wrap: nowrap;
-  align-items: center;
 }
 
 a:link,
@@ -24,32 +21,30 @@ a:visited {
   color: black;
 }
 
-a:hover {
+nav:hover a:hover {
   color: rgba(255, 51, 51, 0.83);
 }
 
-.nav__list {
-  width: 20%;
+.nav {
+  width: 25%;
   background-color: rgba(224, 224, 224, 0.22);
-  width: 155px;
-  margin-top: 25px;
-  margin-left: 25px;
+  width: 169px;
+  margin: 25px 0 0 25px;
   border-radius: 20px;
   padding: 3px;
+  --bs-nav-link-hover-color: black !important;
 }
 
-.nav__item {
-  margin: 25px;
+.nav-item {
+  margin: 10px;
   font-size: 17.5px;
   font-weight: 900;
-  color: black;
 }
 
-.nav__item--timer-icon,
-.nav__item--stopwatch-icon,
-.nav__item--setting-icon {
+.nav-item--timer-icon,
+.nav-item--stopwatch-icon,
+.nav-item--setting-icon {
   width: 32px;
-  margin-right: 7px;
   margin-left: -12px;
 }
 
@@ -58,38 +53,17 @@ a:hover {
   flex-direction: column;
   flex-wrap: nowrap;
   align-items: center;
-  text-align: center;
   width: 60%;
   margin: 13px;
-}
-
-.main-content--h1 {
-  font-size: 43px;
+  margin-top: 25px;
 }
 
 .main-content--d-day {
-  width: 220px !important;
-  height: 43px;
-  font-size: 33px !important;
-}
-
-.main-content--d-day-btn {
-  width: 100px;
-  height: 30px;
-  background-color: #26a69a;
-  border-radius: 8px;
-  color: white;
-  font-weight: 300;
-  font-size: 15px;
-  line-height: 30px;
-  cursor: pointer;
-  margin-bottom: 21px;
+  margin-top: 19px;
 }
 
 .main-content--time {
-  font-size: 48px;
-  display: flex;
-  margin-bottom: 23px;
+  margin: 20px 0;
 }
 
 .main-content--pomodoro-timer {
@@ -107,7 +81,8 @@ a:hover {
 
 .to-do {
   width: 20%;
-  margin-right: 25px;
+  margin: 25px 25px 0 0;
+  margin-top: 25px;
 }
 
 .to-do--h2 {

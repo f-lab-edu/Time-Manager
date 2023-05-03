@@ -1,19 +1,9 @@
+localStorage.getItem("dday");
+
 const DDAY_INPUT = document.querySelector(".main-content--d-day");
 const DDAY_INFO_MSG = document.querySelector(".main-content--h1");
-const RE_DDAY = document.querySelector(".main-content--d-day-btn");
+const RE_DDAY = document.querySelector(".btn-outline-primary");
 const SAVED_DDAY = localStorage.getItem("dday");
-
-RE_DDAY.style.display = "none";
-
-RE_DDAY.addEventListener("click", (e) => {
-  localStorage.removeItem("dday");
-  location.reload();
-});
-
-DDAY_INPUT.addEventListener("input", (e) => {
-  localStorage.setItem("dday", e.target.value);
-  countDate(e.target.value);
-});
 
 const countDate = (date) => {
   const nowDate = new Date();
@@ -24,15 +14,31 @@ const countDate = (date) => {
   const remainingDate = Math.ceil(remaining / 60 / 60 / 24);
 
   if (remainingDate <= 0) {
-    DDAY_INFO_MSG.innerHTML = "D-Day가 종료되었습니다.";
+    DDAY_INFO_MSG.innerHTML = "D-Day가 종료되었습니다";
     DDAY_INFO_MSG.style.display = "block";
   } else {
     DDAY_INFO_MSG.innerHTML = "🍅D-" + remainingDate;
-    DDAY_INFO_MSG.style.fontSize = "60px";
+    DDAY_INFO_MSG.className = "display-4";
     DDAY_INPUT.style.display = "none";
-    RE_DDAY.style.display = "block";
+    RE_DDAY.classList.replace("d-none", "d-block");
   }
 };
+
+$("#datePicker").datepicker({
+  format: "yyyy-mm-dd",
+  autoClose: true,
+  todayHighlight: true,
+  language: "ko",
+  onSelect: function (date) {
+    localStorage.setItem("dday", date);
+    countDate(date);
+  },
+});
+
+RE_DDAY.addEventListener("click", (e) => {
+  localStorage.removeItem("dday");
+  location.reload();
+});
 
 if (SAVED_DDAY) {
   countDate(SAVED_DDAY);
