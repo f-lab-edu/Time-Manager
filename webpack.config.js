@@ -7,4 +7,16 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
   },
+  devServer: {
+    contentBase: "./dist",
+    hot: true,
+  },
+  plugins: [
+    new HotModuleReplacementPlugin(),
+    new HtmlWebpackPlugin({
+      template: "./public/index.html",
+      publicPath: "./",
+    }),
+    new CleanWebpackPlugin(),
+  ],
 };
