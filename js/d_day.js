@@ -1,9 +1,7 @@
-localStorage.getItem("dday");
-
 const DDAY_INPUT = document.querySelector(".main-content--d-day");
-const DDAY_INFO_MSG = document.querySelector(".main-content--h1");
-const RE_DDAY = document.querySelector(".btn-outline-primary");
-const SAVED_DDAY = localStorage.getItem("dday");
+const DDAY_INFO_H1 = document.querySelector(".main-content--h1");
+const RESET_DDAY_BTN = document.querySelector(".btn-outline-primary");
+let savedDday = "";
 
 const countDate = (date) => {
   const nowDate = new Date();
@@ -14,13 +12,13 @@ const countDate = (date) => {
   const remainingDate = Math.ceil(remaining / 60 / 60 / 24);
 
   if (remainingDate <= 0) {
-    DDAY_INFO_MSG.innerHTML = "D-Day가 종료되었습니다";
-    DDAY_INFO_MSG.style.display = "block";
+    DDAY_INFO_H1.innerHTML = "D-Day가 종료되었습니다";
+    DDAY_INFO_H1.style.display = "block";
   } else {
-    DDAY_INFO_MSG.innerHTML = "🍅D-" + remainingDate;
-    DDAY_INFO_MSG.className = "display-4";
+    DDAY_INFO_H1.innerHTML = "🍅D-" + remainingDate;
+    DDAY_INFO_H1.className = "display-4";
     DDAY_INPUT.style.display = "none";
-    RE_DDAY.classList.replace("d-none", "d-block");
+    RESET_DDAY_BTN.classList.replace("d-none", "d-block");
   }
 };
 
@@ -30,16 +28,35 @@ $("#datePicker").datepicker({
   todayHighlight: true,
   language: "ko",
   onSelect: function (date) {
-    localStorage.setItem("dday", date);
+    setLocalStorage("dday", date);
     countDate(date);
   },
 });
 
-RE_DDAY.addEventListener("click", (e) => {
-  localStorage.removeItem("dday");
+const setLocalStorage = (key, value) => {
+  try {
+    localStorage.setItem(key, value);
+  } catch (e) {
+    console.log("setLocalStorage", e);
+  }
+};
+
+const getLocalStorage = () => {
+  savedDday = localStorage.getItem("dday");
+  return savedDday;
+};
+
+const removeLocalStorage = (key) => {
+  localStorage.removeItem(key);
+};
+
+RESET_DDAY_BTN.addEventListener("click", (e) => {
+  removeLocalStorage("dday");
   location.reload();
 });
 
-if (SAVED_DDAY) {
-  countDate(SAVED_DDAY);
+if (getLocalStorage()) {
+  countDate(savedDday);
+} else {
+  DDAY_INFO_H1.innerHTML = "D-Day를 입력해주세요";
 }
