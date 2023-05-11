@@ -67,13 +67,35 @@ nav:hover a:hover {
 }
 
 .main-content--pomodoro-timer {
-  width: 300px;
-  height: 300px;
-  background-color: rgba(255, 51, 51, 0.83);
-  border-radius: 100%;
+  border: 0px;
+  background-color: transparent;
 }
 
-.main-content__text {
+.main-content--pomodoro-timer-svc {
+  width: 300px;
+  height: 300px;
+  fill: rgba(255, 51, 51, 0.83);
+}
+
+.main-content--pomodoro-timer-circle {
+  stroke-dasharray: 596;
+  animation: line 5s linear;
+}
+
+@keyframes line {
+  from {
+    stroke-dashoffset: 596;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.main-content--play_icon {
+  width: 47px;
+}
+
+.text-center {
   width: 300px;
   margin-top: 25px;
   line-height: 21px;
