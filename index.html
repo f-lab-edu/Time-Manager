@@ -78,27 +78,19 @@
         <span>:</span>
         <span class="main-content--seconds"></span>
       </div>
-      <button class="main-content--pomodoro-timer">
-        <img
-          src="./assets/play_icon.png"
-          class="main-content--play_icon"
-          alt="play_icon.png"
-        />
-        <svg
-          class="main-content--pomodoro-timer-svc"
-          viewBox="0 0 200 200"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <circle
-            class="main-content--pomodoro-timer-circle"
-            cx="100"
-            cy="100"
-            r="95"
-            stroke="rgba(255, 51, 51, 0.83)"
-            stroke-width="10"
+      <canvas
+        class="main-content--pomodoro-timer-canvas"
+        width="300"
+        height="300"
+      >
+        <button type="button" class="main-content--pomodoro-timer">
+          <img
+            src="./assets/play_icon.png"
+            class="main-content--play_icon"
+            alt="play_icon.png"
           />
-        </svg>
-      </button>
+        </button>
+      </canvas>
       <figure class="text-center">
         <blockquote class="blockquote">
           <p class="main-content--text"></p>

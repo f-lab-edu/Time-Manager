@@ -1,59 +1,135 @@
 /*
-FIXME: 클릭하면 멈추는 문제
-FIXME: play icon 원 안으로 안들어감
-FIXME: animation 위로 올라가게 수정, 선이 아닌 원 자체로 동작하게 수정, css stroke-dashoffset
-FIXME: 코드 반복되는 부분 수정
-TODO: 일시정지 버튼 추가
+FIXME: 클릭하면 멈춤
+FIXME: play아이콘이 올라오지 않음
+FIXME: 인터넷으로 다른 것을 하면 ctx.stroke가 촘촘히 그려지지 않음
+TODO: 일시정지 버튼 추가?
 */
 
 let minutesSpan = document.querySelector(".main-content--minutes");
 let secondsSpan = document.querySelector(".main-content--seconds");
-const pomodoroBTN = document.querySelector(".main-content--pomodoro-timer");
+const pomodoroCanvas = document.querySelector(
+  ".main-content--pomodoro-timer-canvas"
+);
+const ctx = pomodoroCanvas.getContext("2d");
+const radius = pomodoroCanvas.height / 2;
+ctx.translate(radius, radius);
 
-let setMinutes = 25;
-let setBreak = 5;
-let setSeconds = "00";
-let intervId = "";
-let intervId2 = "";
+//뽀모도로 시작 시간
+let startedTime;
+//뽀모도로 25분 설정
+let pomodoroMinutes = 25;
+//휴식시간 5분 설정
+let breakMinutes = 5;
+//0초 설정
+let seconds = "00";
+//setInterval Id값 저장
+let pomodoroIntervId = "";
+let breakIntervId = "";
+let drawPomodoroIntervId = "";
+let drawBreakPomodoroIntervId = "";
+//여러번 눌리는 버튼 이벤트 막기(버튼이 눌렸으면 false)
+let chkPomodoroBTN = true;
 
 window.onload = () => {
-  minutesSpan.innerHTML = setMinutes;
-  secondsSpan.innerHTML = setSeconds;
+  minutesSpan.innerHTML = pomodoroMinutes;
+  secondsSpan.innerHTML = seconds;
+  drawFace(ctx, radius);
 };
 
 const startPomodoro = () => {
-  if (setMinutes > 0 && setSeconds == 0) {
-    minutesSpan.innerHTML = --setMinutes;
-    secondsSpan.innerHTML = setSeconds = 59;
+  if (pomodoroMinutes > 0 && seconds == 0) {
+    minutesSpan.innerHTML = --pomodoroMinutes;
+    seconds = 59;
+    secondsSpan.innerHTML = seconds;
   } else {
-    secondsSpan.innerHTML = --setSeconds;
+    secondsSpan.innerHTML = --seconds;
   }
-  if (setSeconds < 10) {
-    secondsSpan.innerHTML = "0" + setSeconds;
+  if (seconds < 10) {
+    secondsSpan.innerHTML = "0" + seconds;
   }
-  if (setMinutes == 0 && setSeconds == 0) {
-    clearInterval(intervId);
-    intervId2 = setInterval("startBreak()", 1000);
+  if (pomodoroMinutes == 0 && seconds == 0) {
+    clearInterval(pomodoroIntervId);
+    clearInterval(drawPomodoroIntervId);
+
+    breakIntervId = setInterval(startBreak, 1000);
+    drawFace(ctx, radius);
+
+    //쉬는시간 시작 시간 체크
+    startedTime = new Date();
+    drawBreakPomodoroIntervId = setInterval(drawPomodoro, 200);
   }
 };
 
 const startBreak = () => {
-  if (setBreak > 0 && setSeconds == 0) {
-    minutesSpan.innerHTML = --setBreak;
-    secondsSpan.innerHTML = setSeconds = 59;
+  if (breakMinutes > 0 && seconds == 0) {
+    minutesSpan.innerHTML = --breakMinutes;
+    seconds = 59;
+    secondsSpan.innerHTML = seconds;
   } else {
-    secondsSpan.innerHTML = --setSeconds;
+    secondsSpan.innerHTML = --seconds;
   }
-  if (setSeconds < 10) {
-    secondsSpan.innerHTML = "0" + setSeconds;
+  if (seconds < 10) {
+    secondsSpan.innerHTML = "0" + seconds;
   }
-  if (setBreak == 0 && setSeconds == 0) {
-    clearInterval(intervId2);
+  if (breakMinutes == 0 && seconds == 0) {
+    clearInterval(breakIntervId);
+    clearInterval(drawPomodoroIntervId);
   }
 };
 
-pomodoroBTN.addEventListener("click", () => {
-  clearInterval(intervId);
-  clearInterval(intervId2);
-  intervId = setInterval("startPomodoro()", 1000);
+pomodoroCanvas.addEventListener("click", () => {
+  clearInterval(pomodoroIntervId);
+  clearInterval(breakIntervId);
+  clearInterval(drawPomodoroIntervId);
+  clearInterval(drawBreakPomodoroIntervId);
+
+  //여러번 눌리는 버튼 이벤트 막기(버튼이 눌렸으면 false)
+  if (chkPomodoroBTN) {
+    chkPomodoroBTN = false;
+
+    pomodoroIntervId = setInterval(startPomodoro, 1000);
+
+    //뽀모도로 시작 시간 체크
+    startedTime = new Date();
+    drawPomodoroIntervId = setInterval(drawPomodoro, 200);
+  }
 });
+
+function drawPomodoro() {
+  drawTime(ctx, radius);
+}
+
+function drawFace(ctx, radius) {
+  ctx.beginPath();
+  ctx.arc(0, 0, radius, 0, 2 * Math.PI);
+  if (!pomodoroIntervId) {
+    ctx.fillStyle = "rgba(255, 51, 51)";
+  } else {
+    ctx.fillStyle = "#8a8a8a";
+  }
+  ctx.fill();
+}
+
+function drawTime(ctx, radius) {
+  const currentTime = new Date();
+  let second = (currentTime - startedTime) / 1000;
+  if (pomodoroIntervId) {
+    second = (second * Math.PI) / 30 / 25;
+  } else {
+    second = (second * Math.PI) / 30 / 5;
+  }
+
+  drawHand(ctx, second, radius * 0.98, radius * 0.02);
+}
+
+function drawHand(ctx, pos, length, width) {
+  ctx.beginPath();
+  ctx.lineWidth = width;
+  ctx.lineCap = "round";
+  ctx.strokeStyle = "white";
+  ctx.moveTo(0, 0);
+  ctx.rotate(-pos);
+  ctx.lineTo(0, -length);
+  ctx.stroke();
+  ctx.rotate(pos);
+}
