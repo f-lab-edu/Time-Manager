@@ -66,14 +66,26 @@ nav:hover a:hover {
   margin: 20px 0;
 }
 
-.main-content--pomodoro-timer {
-  width: 300px;
-  height: 300px;
-  background-color: rgba(255, 51, 51, 0.83);
-  border-radius: 100%;
+.main-content--pomodoro-timer-canvas {
+  margin-left: -9px;
+  fill: rgba(255, 51, 51, 0.83);
+  z-index: 1;
 }
 
-.main-content__text {
+.main-content--pomodoro-timer {
+  position: relative;
+  z-index: 2;
+}
+
+.main-content--play_icon {
+  width: 47px;
+  position: absolute;
+  left: 137px;
+  top: 41%;
+  z-index: 9999;
+}
+
+.text-center {
   width: 300px;
   margin-top: 25px;
   line-height: 21px;

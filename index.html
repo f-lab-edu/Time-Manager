@@ -21,6 +21,7 @@
     ></script>
     <script src="./js/datepicker.min.js" defer></script>
     <script src="./js/datepicker.ko.js" defer></script>
+    <script src="./js/pomodoro.js" defer></script>
     <script src="./js/d_day.js" defer></script>
     <script src="./js/wise_saying.js" defer></script>
   </head>
@@ -73,11 +74,23 @@
         D-Day 재입력
       </button>
       <div class="main-content--time display-5">
-        <span class="main-content--minutes">25</span>
-        <span class="main-content--separator">:</span>
-        <span class="main-content--seconds">00</span>
+        <span class="main-content--minutes"></span>
+        <span>:</span>
+        <span class="main-content--seconds"></span>
       </div>
-      <button class="main-content--pomodoro-timer"></button>
+      <canvas
+        class="main-content--pomodoro-timer-canvas"
+        width="300"
+        height="300"
+      >
+        <button type="button" class="main-content--pomodoro-timer">
+          <img
+            src="./assets/play_icon.png"
+            class="main-content--play_icon"
+            alt="play_icon.png"
+          />
+        </button>
+      </canvas>
       <figure class="text-center">
         <blockquote class="blockquote">
           <p class="main-content--text"></p>
