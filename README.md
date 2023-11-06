@@ -1,5 +1,5 @@
 # Time-Manager(시간 관리 사이트)
-📌 개발기간 : 2023.04.06 ~
+📌 개발기간 : 2023.04.06 ~ 2023.05.18
 
 📌 사용 기술 : <img src="https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat&logo=JavaScript&logoColor=white"/>
 <img src="https://img.shields.io/badge/-HTML-E34F26?style=flat&logo=HTML5&logoColor=white"/>
